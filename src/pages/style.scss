@@ -1,0 +1,112 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  }
+
+.container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: $header-height auto $footer-height;
+  grid-template-areas:
+      "h h h h h h h h h h h h"
+      "m c c c c c c c c c c c"
+      "f f f f f f f f f f f f";
+  > div {
+    display: flex;
+    justify-content: center;
+  }
+
+  ul {
+    display: flex;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  .icon {
+    grid-column: 1 / 3;
+  }
+
+  .header {
+    grid-column: 3 / -1;
+
+  }
+
+  .menu {
+    display: block;
+    grid-column: 1 / 3;
+    background: $color-dark-grey;
+  }
+
+  .content {
+    position: relative;
+    grid-column: 3 / -1;
+    background: $color-light-grey;
+    .separated--container {
+      position: absolute;
+      overflow-y: scroll;
+      overflow-x: visible;
+      top: 10px;
+      bottom: 10px;
+      margin: 15px 0;
+      .label--container {
+        display: grid;
+        margin: 0;
+        padding: 0;
+        grid-template-columns: 3fr 1fr 1fr;
+        grid-template-rows: 30px;
+        background: red;
+        grid-gap: 10px;
+        .li--column {
+          border: 1px solid black;
+          text-align: center;
+        }
+      }
+      .popup--translation {
+        width: 100px;
+        background: green;
+        position: absolute;
+        top: 40px;
+        .first--string, .second--string {
+          display: flex;
+        .popup--info {
+          padding: 0 10px;
+        }
+        }
+      }
+      .cards {
+        .cards--container {
+          display: grid;
+          grid-template-columns: 3fr 1fr 1fr;
+          grid-template-rows: 40px;
+          background: blue;
+          grid-gap: 10px;
+          .card--column {
+            text-align: center;
+          }
+          &:hover{
+           border: #ff9b24 solid 1px;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    grid-column: 1 / -1;
+    background: $color-grey;
+  }
+
+  .separated--container {
+    background: white;
+  }
+}
+
+
