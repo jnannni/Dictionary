@@ -2,22 +2,24 @@ import React from "react";
 import {connect} from "react-redux";
 import Choice from "../LangChoice"
 import {bindActionCreators} from "redux";
-import {setAppLoading} from "../../actions/app";
-import {addWord, setLanguages, setSource, setTarget} from "../../actions/dictionary";
+import {addWord} from "../../actions/dictionary";
 
 class Form extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: 0,
             value: '',
             target: '',
             source: '',
             completed: false,
+            translation: '',
         }
     }
 
     handleClick = () => {
         const { addWord } = this.props
+        this.setState(prevState => {return {id: prevState.id + 1}})
         addWord(this.state)
         this.setState({value: ''})
     }
@@ -58,10 +60,6 @@ class Form extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        title: state.app.title,
-        isLoading: state.app.isLoading,
-        langs: state.dictionary.langs,
-        sourceLang: state.dictionary.sourceLang,
         targetLang: state.dictionary.targetLang,
     }
 }
@@ -69,10 +67,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators(
         {
-            setAppLoading,
-            setLanguages,
-            setSource,
-            setTarget,
             addWord,
         },
         dispatch

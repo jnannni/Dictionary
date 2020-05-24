@@ -9,6 +9,7 @@
     "array.prototype.move": "0.0.4",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
+    "dotenv": "^8.2.0",
     "history": "^4.10.1",
     "lodash": "^4.17.15",
     "node-sass": "^4.14.1",

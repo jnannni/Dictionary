@@ -3,6 +3,7 @@ import * as types from '../common/actionTypes/dictionary'
 export const initialState = {
   words: [],
   langs: [],
+  transaltion: [],
   sourceLang: '',
   targetLang: ''
 }
@@ -17,6 +18,9 @@ export default function dictionary(state = initialState, action) {
       return { ...state, sourceLang: action.data}
     case types.SET_TARGET:
       return { ...state, targetLang: action.data}
+    case types.TOGGLE_BOX:
+      return { ...state, words: state.words.map(word =>
+            (word.id === action.data) ? {...word, completed: !word.completed} : word)}
     default:
       return state
   }

@@ -1,8 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import {setAppLoading} from "../../actions/app";
-import {setLanguages, setSource, setTarget} from "../../actions/dictionary";
+import {setSource, setTarget} from "../../actions/dictionary";
 
 class Choice extends React.Component {
     constructor(props) {
@@ -62,17 +61,15 @@ class Choice extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        title: state.app.title,
-        isLoading: state.app.isLoading,
         langs: state.dictionary.langs,
+        sourceLang: state.dictionary.sourceLang,
+        targetLang: state.dictionary.targetLang,
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators(
         {
-            setAppLoading,
-            setLanguages,
             setSource,
             setTarget,
         },

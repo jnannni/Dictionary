@@ -1,55 +1,46 @@
 import React from "react";
 import TranslationForm from "../TranslationForm";
+import {bindActionCreators} from "redux";
+import {setAppLoading} from "../../actions/app";
+import {addWord, setLanguages, setSource, setTarget, toggleBox} from "../../actions/dictionary";
+import {connect} from "react-redux";
 
 class SingleCard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             isShown: false,
-            word: this.props.word,
-            source: this.props.source,
-            target: this.props.target,
-            checked: this.props.completed,
         }
     }
 
-    /*componentDidMount() {
-        const word = localStorage.getItem()
-    }*/
-
-    handleCheckboxChange = () => {
-        this.setState(prevState => ({
-                checked: !prevState.checked
-            })
-        )
-    }
-
     render() {
-        const { word, source, checked } = this.state
-        /*localStorage.setItem(word, word)
-        localStorage.setItem(source, source)
-        localStorage.setItem(checked, checked)*/
+        const { word, source, target, translation, completed, id } = this.props
+        const { toggleBox } = this.props
         return (
             <div>
                 <div className="cards--container"
                      onMouseEnter={() => this.setState({isShown: true})}
                      onMouseLeave={() => this.setState({isShown: false})}
                 >
-                    <div className="card--column">{this.state.word}</div>
-                    <div className="card--column">{this.state.source}</div>
+                    <div className="card--column">{word}</div>
+                    <div className="card--column">{source}</div>
                     <div className="card--column">
                         <label>
                             <input
                                 type="checkbox"
-                                checked={this.state.checked}
-                                onChange={this.handleCheckboxChange}
+                                checked={completed}
+                                onChange={() => toggleBox(id)}
                             />
                         </label>
                     </div>
                 </div>
                 <div>
                     {this.state.isShown && (
-                        <TranslationForm word={this.props.word}/>
+                        <TranslationForm
+                            word={word}
+                            source={source}
+                            target={target}
+                            translation={translation}/>
                     )}
                 </div>
             </div>
@@ -57,4 +48,13 @@ class SingleCard extends React.Component {
     }
 }
 
-export default SingleCard
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(
+        {
+            toggleBox
+        },
+        dispatch
+    )
+}
+
+export default connect(null, mapDispatchToProps)(SingleCard)
