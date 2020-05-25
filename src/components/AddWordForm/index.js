@@ -18,10 +18,20 @@ class Form extends React.Component {
     }
 
     handleClick = () => {
-        const { addWord } = this.props
-        this.setState(prevState => {return {id: prevState.id + 1}})
-        addWord(this.state)
-        this.setState({value: ''})
+        const { target, source } = this.state
+        const { words } = this.props
+        if (words.length > 200) {
+            alert("You can't add more words, srr")
+        } else if (target === '' || source === '') {
+            alert("Choose a language, bastard")
+        } else {
+            const {addWord} = this.props
+            this.setState(prevState => {
+                return {id: prevState.id + 1}
+            })
+            addWord(this.state)
+            this.setState({value: ''})
+        }
     }
 
     handleChange = (event) => {
@@ -39,8 +49,7 @@ class Form extends React.Component {
 
     render() {
         return (
-            <div>
-                <span className="close">&times;</span>
+            <div className="add--form">
                 <div>
                     <input
                         type="text"
@@ -61,6 +70,7 @@ class Form extends React.Component {
 function mapStateToProps(state) {
     return {
         targetLang: state.dictionary.targetLang,
+        words: state.dictionary.words,
     }
 }
 

@@ -51,7 +51,9 @@ class Choice extends React.Component {
                 <select
                     value={this.state.value}
                     onChange={this.handleChange}
+                    autoFocus
                 >
+                    <option name="noLanguageSelected">Select a language...</option>
                     {optionComponent}
                 </select>
             </div>

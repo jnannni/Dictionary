@@ -28,9 +28,7 @@ class Dictionary extends PureComponent {
     const { title } = this.props
     return (
       <div className="container">
-          <div className="icon">
-              <Choice name="target"/>
-          </div>
+          <div className="icon"></div>
           <Header title={title}/>
           <Menu />
           <Content />

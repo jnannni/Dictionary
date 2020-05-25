@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import SingleCard from "../SingleCard";
 
@@ -18,11 +18,11 @@ const Content = ({words}) => {
     return (
         <div className="content">
             <div className="separated--container">
-                <div>
+                <div className="labels--div">
                     <ul className="label--container">
-                        <li className="li--column">Word</li>
-                        <li className="li--column">Source Language</li>
-                        <li className="li--column">Learned</li>
+                        <li className="li--column"><span>Word</span></li>
+                        <li className="li--column"><span>Source Language</span></li>
+                        <li className="li--column"><span>Learned</span></li>
                     </ul>
                 </div>
                 <div className="cards">
