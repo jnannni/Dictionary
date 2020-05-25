@@ -5,10 +5,10 @@ import App from './App'
 import store from './store/store'
 import * as serviceWorker from './serviceWorker'
 import { Provider } from 'react-redux'
-import { loadState, saveState } from './localStorage'
+import { saveState } from './localStorage'
 
 store.subscribe(() => {
-    saveState(store.getState())
+  saveState(store.getState())
 })
 
 ReactDOM.render(

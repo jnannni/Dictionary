@@ -7,6 +7,7 @@ html, body {
   }
 
 .container {
+  background-image: url("../../src/assets/img/background.jpg");
   position: fixed;
   width: 100%;
   height: 100%;
@@ -23,21 +24,40 @@ html, body {
     justify-content: center;
   }
 
-  ul {
+  ul.label--container {
     display: flex;
   }
 
-  li {
-    list-style-type: none;
+  ul.tips--container {
+    margin: 5px;
   }
 
-  .icon {
+  input[type="text"] {
+    background: $color-add-button;
+    color: $color-font;
+  }
+  ::placeholder {
+    color: $color-font;
+  }
+
+  .select--field {
+    font-size: 10px;
+    height: 25px;
+    width: 85px;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 0;
+    background: $color-add-button;
+    color: $color-font;
+  }
+
+  /*.icon {
     grid-column: 1 / 3;
     background: $color-header-footer;
-  }
+  }*/
 
   .header {
-    grid-column: 3 / -1;
+    grid-column: 1 / -1;
     display: flex;
     align-items: center;
     position: relative;
@@ -66,6 +86,12 @@ html, body {
         margin: 0;
         background: $color-white;
         grid-row: 2;
+        .paragraph {
+          margin: 5px;
+          font-size: 15px;
+          color: $color-add-button;
+
+        }
       }
       .add--button--div {
         background: $color-white;
@@ -82,10 +108,38 @@ html, body {
           color: $color-font;
         }
       }
-      .close--button {
-        position: absolute;
-        right: 2px;
-        top: 0;
+      .tooltip {
+        .close--button {
+          position: absolute;
+          right: 2px;
+          top: 0;
+          color: $color-add-button;
+          font-family: Arial;
+        }
+        .add--form {
+          height: 70px;
+          width: max-content;
+          .input--form {
+            width: 140px;
+            margin: auto;
+            background: $color-input-form;
+          }
+          .form--actions {
+            display: flex;
+            margin-top: 15px;
+            .button--form {
+              font-size: 10px;
+              margin-left: 15px;
+              width: 40px;
+              height: 25px;
+              border-radius: 15px;
+              border: 0;
+              color: $color-font;
+              font-weight: bold;
+              background: $color-add-button;
+            }
+          }
+        }
       }
     }
 
@@ -106,12 +160,13 @@ html, body {
         .label--container {
           display: grid;
           padding: 0;
-          grid-template-columns: 350px 150px 150px;
+          grid-template-columns: 350px 150px 100px 50px;
           grid-template-rows: 50px;
           grid-gap: 10px;
           background: $color-table-label;
           margin: 0 15px;
           .li--column {
+            list-style-type: none;
             margin: auto;
             text-align: center;
             font-size: 15px;
@@ -119,21 +174,35 @@ html, body {
         }
       }
       .popup--translation {
-        width: 100px;
-        background: green;
-        position: absolute;
-        top: 40px;
+        width: 200px;
+        height: 100px;
+        position: fixed;
+        top: 250px;
+        left: 1000px;
+        border: 2px solid #494949;
+        border-radius: 10px;
+        background: $color-add-button;
         .first--string, .second--string {
           display: flex;
-        .popup--info {
-          padding: 0 10px;
-        }
+          height: 50px;
+          .popup--word{
+            text-align: center;
+            width: 140px;
+          }
+          .popup--info {
+            padding: 0 10px;
+          }
+          .popup--lang {
+            text-align: center;
+            margin-left: 20px;
+            width: 40px;
+          }
         }
       }
       .cards {
         .cards--container {
           display: grid;
-          grid-template-columns: 350px 150px 150px;
+          grid-template-columns: 350px 150px 100px 50px;
           grid-template-rows: 60px;
           background: $color-card;
           border-radius: 10px;
@@ -145,7 +214,7 @@ html, body {
             text-align: center;
           }
           &:hover{
-           border: #ff9b24 solid 1px;
+           border: $color-table-label solid 2px;
           }
         }
       }
@@ -155,6 +224,9 @@ html, body {
   .footer {
     grid-column: 1 / -1;
     background: $color-header-footer;
+    .linkToWebsite {
+      color: $color-font;
+    }
   }
 
   .separated--container {

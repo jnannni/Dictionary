@@ -5,7 +5,7 @@ export const initialState = {
   langs: [],
   transaltion: [],
   sourceLang: '',
-  targetLang: ''
+  targetLang: '',
 }
 
 export default function dictionary(state = initialState, action) {
@@ -13,14 +13,18 @@ export default function dictionary(state = initialState, action) {
     case types.ADD_WORD:
       return { ...state, words: [...state.words, action.data] }
     case types.SET_LANGS:
-      return {...state, langs: action.data}
+      return { ...state, langs: action.data }
     case types.SET_SOURCE:
-      return { ...state, sourceLang: action.data}
+      return { ...state, sourceLang: action.data }
     case types.SET_TARGET:
-      return { ...state, targetLang: action.data}
+      return { ...state, targetLang: action.data }
     case types.TOGGLE_BOX:
-      return { ...state, words: state.words.map(word =>
-            (word.id === action.data) ? {...word, completed: !word.completed} : word)}
+      return {
+        ...state,
+        words: state.words.map((word) =>
+          word.id === action.data ? { ...word, completed: !word.completed } : word
+        ),
+      }
     default:
       return state
   }
