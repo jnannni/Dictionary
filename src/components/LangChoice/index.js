@@ -15,6 +15,7 @@ class Choice extends React.Component {
         this.setState({value: event.target.value})
         if (this.props.name === "target") {
             this.chooseTarget(event.target.value)
+            localStorage.setItem("targetLang", event.target.value)
         } else if (this.props.name === "source") {
             this.chooseSource(event.target.value)
             this.props.setSourceLang(event.target.value)

@@ -12,6 +12,7 @@ const Content = ({words}) => {
         />).reverse()
         const filteredArray = [component.filter(word => !word.props.completed),
             component.filter(word => word.props.completed)]
+        /*localStorage.setItem("words", JSON.stringify(words))*/
         return filteredArray
     }
 
