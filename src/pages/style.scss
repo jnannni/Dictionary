@@ -40,6 +40,10 @@ html, body {
     color: $color-font;
   }
 
+  :focus {
+    outline: none;
+  }
+
   .select--field {
     font-size: 10px;
     height: 25px;
@@ -115,6 +119,9 @@ html, body {
           top: 0;
           color: $color-add-button;
           font-family: Arial;
+          &:hover {
+            cursor: pointer;
+          }
         }
         .add--form {
           height: 70px;

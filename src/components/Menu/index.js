@@ -12,7 +12,7 @@ const Menu = () => {
           <h4>Rules</h4>
         </div>
         <div className="rules--text">
-          <p className="paragraph">Hi there! You are in my pseudo dictionary 👺</p>
+          <p className="paragraph">Hi there! You are in my pseudo dictionary <span>👺</span></p>
           <p className="paragraph">There are some tips:</p>
           <ul className="tips--container paragraph">
             <li>you can't add more than 200 words;</li>

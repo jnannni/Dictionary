@@ -7,7 +7,7 @@ set -e
 npm run build
 
 # переход в каталог сборки
-cd dist
+cd build
 
 # если вы публикуете на пользовательский домен
 # echo 'www.example.com' > CNAME
@@ -23,3 +23,4 @@ git push -f https://github.com/jnannni/jnannni.github.io.git master
 # git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
 
 cd -
+
